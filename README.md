@@ -17,4 +17,4 @@ uv run pytest -v
 
 ## In Progress
 
-Project is still in progress. More tests, including SQLite checks are planned.
+Project is still in progress. More tests, including SQLite checks, are planned.
