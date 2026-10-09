@@ -1,14 +1,13 @@
 import requests
 
-def test_can_get_posts():
-    response =  requests.get("https://jsonplaceholder.typicode.com/posts")
+
+def test_can_get_posts(response):
     assert response.status_code == 200
 
-def test_posts_returns_100_posts_with_expected_fields():
-    response = requests.get("https://jsonplaceholder.typicode.com/posts")
-    posts = response.json()
+def test_posts_returns_100_posts_with_expected_fields(posts):
     assert len(posts) == 100
-    assert "id" in posts[0]
-    assert "title" in posts[0]
-    assert "body" in posts[0]
-    assert "userId" in posts[0]
+    key_names = ["id", "title", "body", "userId"]
+    for post in posts:
+        for name in key_names:
+            assert name in post, f"{name} not in {post}"
+            
